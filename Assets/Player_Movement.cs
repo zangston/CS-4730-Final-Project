@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    public float speed = 100.0f;
-    public Rigidbody2D rb;
+    [SerializeField] private float speed = 100.0f;
+    [SerializeField] private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
