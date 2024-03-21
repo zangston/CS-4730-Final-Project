@@ -7,6 +7,7 @@ public class Player_Movement : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField] private float moveSpeed = 7.0f;
+    [SerializeField] private float dashMultiplier = 100.0f;
     private float dirX = 0f;
     private float dirY = 0f;
 
@@ -21,6 +22,14 @@ public class Player_Movement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal");
         dirY = Input.GetAxisRaw("Vertical");
-        rb.velocity = new Vector2(dirX * moveSpeed, dirY * moveSpeed);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Spacebar was pressed");
+            rb.velocity = new Vector2(dirX * moveSpeed * dashMultiplier, dirY * moveSpeed * dashMultiplier);
+        }
+        else
+        {
+            rb.velocity = new Vector2(dirX * moveSpeed, dirY * moveSpeed);
+        }
     }
 }
